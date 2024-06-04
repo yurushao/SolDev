@@ -14,4 +14,4 @@ RUN curl -sSf https://sh.rustup.rs | sh -s -- -y && \
 
 ENV PATH="${PATH}:/root/.cargo/bin:/root/.local/share/solana/install/active_release/bin"
 RUN cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
-RUN avm install 0.29.0 && avm use 0.29.0
+RUN avm install 0.29.0 && avm use 0.29.0 && solana-install-init 1.18.11
