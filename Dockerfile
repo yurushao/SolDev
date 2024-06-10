@@ -6,8 +6,7 @@ WORKDIR /mnt/workspace
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     git curl build-essential pkg-config \
     libudev-dev llvm libclang-dev \
-    protobuf-compiler libssl-dev \
-    libpixman-1-dev libcairo2-dev libpango1.0-dev libjpeg8-dev libgif-dev
+    protobuf-compiler libssl-dev
 
 # Install nodejs, rust, and solana
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash && apt-get install -y nodejs
