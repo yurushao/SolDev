@@ -3,7 +3,7 @@
 A container image with all essential Solana dev tools installed.
 
 - nodejs v20
-- solana 1.18.11
+- solana 1.18.17
 - anchor 0.29.0
 
 To use this image:
