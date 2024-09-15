@@ -8,15 +8,15 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libudev-dev llvm libclang-dev \
     protobuf-compiler libssl-dev
 
-# Install nodejs, rust, and solana
+# Install nodejs, rustup, and solana
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash && apt-get install -y nodejs
 RUN curl -sSf https://sh.rustup.rs | sh -s -- -y && \
-    curl -sSf https://release.solana.com/stable/install | sh
+    curl -sSf https://release.anza.xyz/v1.18.23/install | sh
 
-# Install anchor and avm, pin solana version
+# Pin rust version 1.78.0 to avoid type error: https://github.com/rust-lang/rust/issues/127343
+# Install avm and anchor
 ENV PATH="${PATH}:/root/.cargo/bin:/root/.local/share/solana/install/active_release/bin:/root/.avm/bin/"
-RUN cargo install --git https://github.com/coral-xyz/anchor avm --locked --force && \
-    solana-install-init 1.18.18 && \
-    avm install 0.29.0 && \
-    avm use 0.29.0 && \
-    rustup default stable
+RUN rustup default 1.78.0 && \
+    cargo install --git https://github.com/coral-xyz/anchor avm --locked --force && \
+    avm install 0.30.1 && \
+    avm use 0.30.1
