@@ -1,12 +1,14 @@
 # SolDev
 
-A container image with all essential Solana dev tools installed.
+A docker container image with all essential Solana dev tools installed.
 
+The current release pins:
+
+- solana 1.18.23 (agave)
+- anchor 0.30.1
 - nodejs v20
-- solana 1.18.17
-- anchor 0.29.0
 
-To use this image:
+To use the image:
 
 ```
 $ docker pull ghcr.io/yurushao/soldev:release
